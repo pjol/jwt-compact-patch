@@ -377,10 +377,17 @@ enum ContentType {
 /// ```
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct UntrustedToken<'a, H = Empty> {
+
+    #[serde(rename = "signedData")]
     pub signed_data: Cow<'a, [u8]>,
+
     header: Header<H>,
     algorithm: String,
+
+    #[serde(rename = "contentType")]
     content_type: ContentType,
+
+    #[serde(rename = "serializedClaims")]
     serialized_claims: Vec<u8>,
     signature: SmallVec<[u8; SIGNATURE_SIZE]>,
 }
