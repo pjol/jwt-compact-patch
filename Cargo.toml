@@ -1,5 +1,5 @@
 [package]
-name = "jwt-compact"
+name = "jwt-compact-patch"
 version = "0.9.0-beta.1"
 authors = [
   "Alex Ostrovski <ostrovski.alex@gmail.com>",
@@ -8,6 +8,7 @@ authors = [
   "Maximilian Münchow <github@maxmuen.de>",
   "Eran Rundstein <eran@rundste.in>",
   "Bruno Green",
+  "PJ O'Leary"
 ]
 edition = "2021"
 rust-version = "1.70"
@@ -16,7 +17,7 @@ license = "Apache-2.0"
 keywords = ["JWT", "token", "authorization"]
 categories = ["web-programming", "cryptography", "no-std"]
 description = "Minimalistic JWT implementation with focus on type safety and secure cryptographic primitives"
-repository = "https://github.com/slowli/jwt-compact"
+repository = "https://github.com/pjol/jwt-compact-patch"
 
 exclude = ["e2e-tests"]
 
@@ -123,3 +124,8 @@ required-features = ["rsa/pem"]
 
 [workspace]
 members = [".", "e2e-tests/no-std", "e2e-tests/wasm"]
+
+[patches.crates-io]
+sha2-v0-10-8 = { git = "https://github.com/sp1-patches/RustCrypto-hashes", package = "sha2", branch = "patch-sha2-v0.10.8" }
+ecdsa-core = { git = "https://github.com/sp1-patches/signatures", package = "ecdsa", branch = "patch-ecdsa-v0.16.9" }
+

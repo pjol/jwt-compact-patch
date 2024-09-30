@@ -377,7 +377,7 @@ enum ContentType {
 /// ```
 #[derive(Debug, Clone)]
 pub struct UntrustedToken<'a, H = Empty> {
-    pub(crate) signed_data: Cow<'a, [u8]>,
+    pub signed_data: Cow<'a, [u8]>,
     header: Header<H>,
     algorithm: String,
     content_type: ContentType,
