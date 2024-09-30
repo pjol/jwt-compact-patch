@@ -1,5 +1,5 @@
 [package]
-name = "jwt-compact-patch"
+name = "jwt-compact"
 version = "0.9.0-beta.1"
 authors = [
   "Alex Ostrovski <ostrovski.alex@gmail.com>",
