@@ -321,7 +321,7 @@ pub(crate) struct CompleteHeader<'a, T> {
     pub inner: T,
 }
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 enum ContentType {
     Json,
     #[cfg(feature = "ciborium")]
@@ -375,7 +375,7 @@ enum ContentType {
 /// println!("{}", extensions.custom);
 /// # Ok::<_, anyhow::Error>(())
 /// ```
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct UntrustedToken<'a, H = Empty> {
     pub signed_data: Cow<'a, [u8]>,
     header: Header<H>,
